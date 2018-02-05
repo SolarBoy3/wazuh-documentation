@@ -1,17 +1,17 @@
 The registration process
 =========================
 
-Every Wazuh Agent send data to Wazuh Manager via secure way called OSSEC message protocol this encrypts messages using a pre-shared key. Initially when you successfully install a new Wazuh Agent this cannot comunicate with Wazuh Manager for lack of the pre-shared key.
+Every Wazuh Agent sends data to the Wazuh Manager via a secure OSSEC message protocol that encrypts messages using a pre-shared key. Initially when you install a new Wazuh Agent it cannot comunicate with Wazuh Manager for lack of the pre-shared key.
 
-The registration process consists of a mechanism to create a trust relationship between the Manager and a Agent, this process could be done in a Manager itself or with a registration service, this service it listen on the Manager, a Agent could request a pre-shared key using some credentials and it will reply with the pre-shared key and store the new Agent in local database.
+The registration process consists of a mechanism to create a trust relationship between the Manager and a Agent, this process could be done in a Manager itself or with a registration service. This service listens on the Manager for when the Agent requests a pre-shared key using some credentials and it will reply with the pre-shared key and store the new Agent in the local database.
 
-Another aproach is using the RESTful API, this is just a wrapper for local registration on Wazuh Manager.
+Another approach is using the RESTful API, this is just a wrapper for local registration on the Wazuh Manager.
 
 
 Agent keys
 -----------
 
-The manager uses the file ``/var/ossec/etc/client.keys`` to store the registration record of each agent, which includes ID, name, IP, and key. Example::
+The manager uses the file ``/var/ossec/etc/client.keys`` to store the registration record of each agent, which includes ID, name, IP, and key. For example::
 
     001 Server1 any e20e0394dca71bacdea57d4ca25d203f836eca12eeca1ec150c2e5f4309a653a
     002 ServerProd 192.246.247.247 b0c5548beda537daddb4da698424d0856c3d4e760eaced803d58c07ad1a95f4c
